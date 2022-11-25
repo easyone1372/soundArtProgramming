@@ -9,7 +9,7 @@ function setup() {
   wave.setType('sine');
   //wave.start();
   wave.freq(440);
-  wave.amp(0.1);
+  wave.amp();
 
   button = createButton('play/pause');
   button.mousePressed(toggle);
@@ -29,7 +29,7 @@ function toggle(){
     playing = true;
   }
   else{
-    wave.amp(0.1);
+    wave.amp(0,1);
     playing = false;
   }
 }
