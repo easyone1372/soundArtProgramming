@@ -1,35 +1,22 @@
-var wave;
-var playing=false;
-var button;
-
-function setup() {
-  //createCanvas(displayWidth, displayHeight); //기기 사이즈에 맞춰서 생성됨
-  createCanvas(720,256);
-  wave = new p5.Oscillator();
-  wave.setType('sine');
-  //wave.start();
-  wave.freq(440);
-  wave.amp();
-
-  button = createButton('play/pause');
-  button.mousePressed(toggle);
-
+let r,g,b;
+function setup(){
+  createCanvas(displayWidth, displayHeight);
+  r=random(50,255);
+  g=random(0,200);
+  b=random(50,255);
 }
 
-/*
-function draw() {
-  
+function draw(){
+  background(r,g,b);
+  //console.log('draw');
+  console.log(accelerationX, accelerationY, accelerationZ);
 }
-*/
 
-function toggle(){
-  if(!playing){
-    wave.start();
-    wave.amp(0.5,1);
-    playing = true;
-  }
-  else{
-    wave.amp(0,1);
-    playing = false;
-  }
+function deviceMoved(){
+  background(255);
+  Text(accelerationX+","+accelerationY+","+accleerationZ,10,10)
+  r=map(accelerationX, -90,90,100,175);
+  g=map(accelerationY, -90,90,100,200);
+  b=map(acceleration,Z -90,90,100,200);
+
 }
